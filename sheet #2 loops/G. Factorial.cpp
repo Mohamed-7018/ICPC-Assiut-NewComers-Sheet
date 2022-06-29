@@ -1,49 +1,38 @@
-#include <iostream>
-#include <algorithm>
-#include <cctype>
-#include <stdio.h>
-
+#include <bits/stdc++.h>
 using namespace std;
+#define ll  long long
+#define ld  long double
+#define mk  make_pair
+#define vi  vector<int>
+#define vl  vector<long long>
+#define pqi priority_queue<int>
+#define qi  queue<int>
+#define sc  set<char>
+#define ss  set<string>
+#define si  set<int>
+#define pii pair<int, int>
+#define mci map<char,int>
 
+ll ans = 0;
 
- int main () {
+ll factorial(int n)
+{
+    if (n == 0)
+        return 1;
+    return n * factorial(n - 1);
+}
 
+int main()
+{
     int n;
     cin >> n;
-    void factorial(int n);
-
-    int arr[n];
-    for (int i=0; i<n; i++) {
-        cin>>arr[i];
+    int a[n];
+    for (int i = 0; i < n; i++){
+        cin >> a[i];
+        cout << factorial(a[i]) << endl;
     }
-
-    for (int i=0; i<n; i++) {
-        factorial(arr[i]);
-           }
-
-
-
-    return 0;
-
-
- }
-
-  void factorial(int n){
-    long int factorial = 1;
     
-    if (n==0) {
-        cout <<1;
-    }
-    else {
-        
-        for(int i = 1; i <= n; ++i) {
-            factorial *= i;
-        }
-        cout << factorial <<endl;
-    }
-
-
- }
-
-
-
+    
+    
+    return 0;
+}
