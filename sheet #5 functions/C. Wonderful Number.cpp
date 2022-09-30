@@ -1,43 +1,73 @@
+#include <bits/stdc++.h>
 
-#include <iostream>
 using namespace std;
- 
+#define ll  long long
+#define ld  long double
+#define mk  make_pair
+#define vi  vector<int>
+#define vs  vector<string>
+#define vp  vector<pair<string, string>>
+#define all(v) v.begin(),v.end()
+#define vl  vector<long long>
+#define pqi priority_queue<int>
+#define qi  queue<int>
+#define sc  set<char>
+#define si  set<int>
+#define pii pair<int, int>
+#define psv pair<string, vector<int>>
+#define mci map<char,int>
+#define msv map<string,vector<string>>
+#define sz(s)    (int)(s.size())
 
-void binary (long long dec) {
-    long long binary=0, rem, prod =1, rev=0, x;
-    while (dec !=0) {
-        rem = dec % 2;
-        binary = binary + (rem * prod);
-        dec =  dec /2;
-        prod *=10;
-    }
-    
-    //cout << binary << endl;
-    long long n = binary; 
-    while (n!=0) {
-        x= n%10;
-        rev = rev *10 + x;
-        n/=10;
-    }
-    //cout<< rev<<endl;
-    if (rev == binary) cout << "YES";
-    else cout <<"NO";
-    
+
+using namespace std;
+
+
+void begin() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+
 }
 
-
-bool even ( long long n) {
-    if (n%2 ==0) return true;
-    else return false;
-}
- 
 int main() {
-    long long num;
-    cin>> num;
-    
-    if (even (num)) {
-       cout << "NO";
-    }else{
-        binary(num);
+
+    begin();
+    int n;
+    cin >> n;
+
+    if (n%2 == 0 ) {
+        cout << "NO" ;
+        return  0;
     }
+
+    int index = 0;
+//    int bi[100];
+     vector<int> bi(100);
+
+    while(n != 0){
+        bi[index] = n%2;
+        n /= 2;
+        index++;
+    }
+
+
+    for(int i=0,z=index-1;i<index,z>=0;i++,z--){
+        if(bi[i] != bi[z]){
+            cout<<"NO"<<endl;
+            return 0;
+        }
+    }
+
+    cout << "YES" ;
+
+    return 0;
+
 }
+
+
+
+
+
+// g++ -o hello hello.cpp
+// ./hello
